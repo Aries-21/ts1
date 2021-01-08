@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+<title>黑色加厚運動衛衣</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .rat {
+    max-width: 800px;
+    /* Max width */
+    padding: 20px;
+    padding-top: 50px;
+  }
+
+  .heading {
+    font-size: 25px;
+    margin-right: 25px;
+  }
+
+  .fa {
+    font-size: 25px;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+  /* Three column layout */
+  .side {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+  }
+
+  .middle {
+    margin-top: 10px;
+    float: left;
+    width: 70%;
+  }
+
+  /* Place text to the right */
+  .right {
+    text-align: right;
+  }
+
+  /* Clear floats after the columns */
+  .ratt:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* The bar container */
+  .bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+  }
+
+  /* Individual bars */
+  .bar-5 {
+    width: 60%;
+    height: 18px;
+    background-color: #4CAF50;
+  }
+
+  .bar-4 {
+    width: 30%;
+    height: 18px;
+    background-color: #2196F3;
+  }
+
+  .bar-3 {
+    width: 10%;
+    height: 18px;
+    background-color: #00bcd4;
+  }
+
+  .bar-2 {
+    width: 4%;
+    height: 18px;
+    background-color: #ff9800;
+  }
+
+  .bar-1 {
+    width: 15%;
+    height: 18px;
+    background-color: #f44336;
+  }
+
+  /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+  @media (max-width: 400px) {
+
+    .side,
+    .middle {
+      width: 100%;
+    }
+
+    .right {
+      display: none;
+    }
+  }
+
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+    width: 500px;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 33.33%;
+  }
+
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  #back {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    max-width: 205px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 70px;
+
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 100px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: -160px;
+    font-size: 50px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  .sidenav a,
+  .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 27px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* On mouse-over */
+  .sidenav a:hover,
+  .dropdown-btn:hover {
+    color: #f1f1f1;
+  }
+
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: #818181;
+    color: white;
+  }
+
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change
+  the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+  }
+
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+
+
+  .cart {
+    float: right;
+  }
+
+  .member {
+    float: right;
+    margin-top: 12px;
+  }
+
+  .wrap {
+    float: right;
+    margin-right: 90px;
+    margin-top: 16px;
+  }
+
+  .search-bar {
+    height: 50px;
+    font-size: large;
+  }
+
+  .search-btn {
+    outline: none;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
+  .select {
+    width: 200px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    margin-top: 10px;
+  }
+
+  .a {
+    display: flex;
+  }
+
+  /* Full-width input fields */
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  .button-1 {
+    background-color: gray;
+    color: white;
+    padding: 0px 0px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+  }
+
+  .button-1:hover {
+    opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+
+
+  .container-1 {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 1500px;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    padding-top: 60px;
+    padding-left: 170px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid gray;
+    width: 35%;
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0)
+    }
+
+    to {
+      -webkit-transform: scale(1)
+    }
+  }
+
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
+    }
+
+    to {
+      transform: scale(1)
+    }
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+  .topic {
+    float: left;
+    margin-left: 575px;
+  }
+
+  .open {
+    float: left;
+  }
+
+  .talker {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+
+  .darker {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .darker::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .darker img.right {
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    border-radius: 50%;
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+
+  .time-left {
+    float: left;
+    color: #999;
+  }
+</style>
+
+<body>
+  <input type="image" src="img/back.jpg" height="50px" width="50px" onclick="topFunction()" id="back">
+  <div style="width: 100%; height: 100px;">
+    <div class="cart" style="padding-top: 26px; padding-left: 10px;"><a href="checkout.html"><input type="image"
+          src="img/shop.png" height="50px" width="50px"></a></div>
+    <div class="member"> <button class="button-1" onclick="document.getElementById('id01').style.display='block'"><img
+          src="img/member.png" height="50px" width="50px">
+      </button></div>
+    <div id="id01" class="modal">
+
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+          <img src="img/member.png" height="200px" alt="Avatar" class="avatar" style="border-radius: 50%;">
+        </div>
+
+        <div class="container-1">
+          <label for="uname"><b>帳號</b></label>
+          <input type="text" placeholder="輸入帳號" name="uname" required>
+
+          <label for="psw"><b>密碼</b></label>
+          <input type="password" placeholder="輸入密碼" name="psw" required>
+          <button class="button-1" type="submit" style="width: 100px;"><a href="register.html"
+              style="color: white;text-decoration:none;">註冊</a></button>
+          <button class="button-1" type="submit" style="width: 100px;margin-left: 90px;">登入</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> 記住我
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="wrap">
+      <div class="search">
+        <input class="search-bar" type="text" name="search" id="search" placeholder="Search...">
+        <button class="search-btn">
+          <input type="image" src="img/search.png" height="40px" width="40px">
+        </button>
+      </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">首頁</a>
+      <button class="dropdown-btn">商品一覽
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="top coat.html">上裝</a>
+        <a href="bottom.html">下裝</a>
+      </div>
+      <a href="contact.html">關於我們</a>
+      <a href="member.html">會員中心</a>
+      <a href="#">留言板</a>
+    </div>
+    <span class="open" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <div class="topic"><img src="img/title.png" height="100px"></div>
+  </div>
+  <div class="all" style="background-color: #DDFFF7;padding-top: 30px; border-radius: 10px;padding-bottom: 30px;">
+    <div class="a">
+      <div style="padding-left: 300px;">
+        <div class="container">
+          <div class="mySlides">
+            <div class="numbertext">1 / 3</div>
+            <img id="myImg" src="img/sy1/sy1-1.jpg" style="width:100%;max-width:500px;">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 3</div>
+            <img id="myImg2" src="img/sy1/sy1-2.jpg" style="width:100%;max-width:500px;">
+
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">3 / 3</div>
+            <img id="myImg3" src="img/sy1/sy1-3.jpg" style="width:100%;max-width:500px;">
+
+          </div>
+
+
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+          <div>
+            <p></p>
+          </div>
+
+          <div class="row" align="center">
+            <div class="column">
+              <img class="demo cursor" src="img/sy1/sy1-1.jpg" style="width: 150px;" onclick="currentSlide(1)">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img/sy1/sy1-2.jpg" style="width: 150px;" onclick="currentSlide(2)">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img/sy1/sy1-3.jpg" style="width: 150px;" onclick="currentSlide(3)">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="select">
+        <table width="800px" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td colspan="2" style="font-size: 35px;">黑色加厚運動衛衣</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-size: 20px; padding-top: 30px;padding-left: 15px;">價格 ： NTD 1999</td>
+          </tr>
+          <tr>
+            <td style="font-size: 20px;padding-top: 10px;padding-left: 15px;">規格 : </td>
+            <td style="padding-top: 10px;">
+              <table cellpadding="4" cellspacing="4" style="float: left;margin-left: -725px;">
+                <tr>
+                  <th>S</th>
+                  <th>M</th>
+                  <th>L</th>
+                  <th>XL</th>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="radio" name="size" value="000">
+                  </td>
+                  <td>
+                    <input type="radio" name="size" value="000">
+                  </td>
+                  <td>
+                    <input type="radio" name="size" value="000">
+                  </td>
+                  <td>
+                    <input type="radio" name="size" value="000">
+                  </td>
+                </tr>
+              </table>
+          <tr>
+            <td style="font-size: 20px;padding-top: 10px;padding-left: 15px;">數量 : </td>
+            <td style="padding-top: 10px;float: left;margin-left: -710px;">
+              <select name="amount">
+                <option value="1">&nbsp;&nbsp;1&nbsp;</option>
+                <option value="2">&nbsp;&nbsp;2&nbsp;</option>
+                <option value="3">&nbsp;&nbsp;3&nbsp;</option>
+                <option value="4">&nbsp;&nbsp;4&nbsp;</option>
+                <option value="5">&nbsp;&nbsp;5&nbsp;</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" height="10" style="padding-top: 40px;">
+              <a href="javascript:void('0');" onclick="#">
+                <span><img src="https://photo.hitobp.com.tw/upload/hitobp/define_image/filename_4020.png?1608188439"
+                    onmouseover="this.src='https://photo.hitobp.com.tw/upload/hitobp/define_image/filename_4021.png?1608188452'"
+                    onmouseout="this.src='https://photo.hitobp.com.tw/upload/hitobp/define_image/filename_4020.png?1608188439'"
+                    border="0" align="absmiddle"></span>
+              </a></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="rat">
+                <span class="heading">User Rating</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <p>4.1 average based on 254 reviews.</p>
+                <hr style="border:3px solid #f1f1f1">
+
+                <div class="ratt">
+                  <div class="side">
+                    <div>5 star</div>
+                  </div>
+                  <div class="middle">
+                    <div class="bar-container">
+                      <div class="bar-5"></div>
+                    </div>
+                  </div>
+                  <div class="side right">
+                    <div>150</div>
+                  </div>
+                  <div class="side">
+                    <div>4 star</div>
+                  </div>
+                  <div class="middle">
+                    <div class="bar-container">
+                      <div class="bar-4"></div>
+                    </div>
+                  </div>
+                  <div class="side right">
+                    <div>63</div>
+                  </div>
+                  <div class="side">
+                    <div>3 star</div>
+                  </div>
+                  <div class="middle">
+                    <div class="bar-container">
+                      <div class="bar-3"></div>
+                    </div>
+                  </div>
+                  <div class="side right">
+                    <div>15</div>
+                  </div>
+                  <div class="side">
+                    <div>2 star</div>
+                  </div>
+                  <div class="middle">
+                    <div class="bar-container">
+                      <div class="bar-2"></div>
+                    </div>
+                  </div>
+                  <div class="side right">
+                    <div>6</div>
+                  </div>
+                  <div class="side">
+                    <div>1 star</div>
+                  </div>
+                  <div class="middle">
+                    <div class="bar-container">
+                      <div class="bar-1"></div>
+                    </div>
+                  </div>
+                  <div class="side right">
+                    <div>20</div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="put" align="center">
+      <input type="text" placeholder="寫下你的評論..." name="put" required
+        style="max-width: 1000px;height: 100px;border-radius: 5px;"><br>
+      <button type="submit" style="width: 100px;height: 40px;background-color: #dedede;color: white;border-radius: 5px;border:
+        #999;font-size: 25px;">送出</button>
+    </div>
+
+    <div class="talker">
+      <div class="darker">
+        <img src="img/tx.jpg" class="right" style="width:100%;">
+        <p>Very nice!</p>
+        <span class="time-left">2020/12/25</span>
+      </div>
+
+      <div class="darker">
+        <img src="img/tx.jpg" class="right" style="width:100%;">
+        <p>Good job!</p>
+        <span class="time-left">2021/01/01</span>
+      </div>
+    </div>
+    <div align="center" style="padding-top: 20px;">
+      <table>
+        <tr>
+          <td><img src="img/sy1/sy1-4.jpg" style="width: 500px; height: 770px;"></td>
+          <td><img src="img/sy1/sy1-5.jpg" style="width: 500px; height: 770px;"></td>
+          <td><img src="img/sy1/sy1-6.jpg" style="width: 500px; height: 770px;"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <footer align="center" style="background-color: #004643; color: #FDFFFC;border-radius: 10px;">
+    <p style="padding-top: 15px;">Copyright@2020,資訊管理學係第三十二組,Kleider</p>
+    <p style="padding-bottom: 15px;">所有店鋪和商品資料僅使用於第三十二組109-1學期期末專案</p>
+  </footer>
+  <script>
+    //选择图片
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+
+    //back to top 按鈕的部分
+    var mybutton = document.getElementById("back");
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    //选单
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
